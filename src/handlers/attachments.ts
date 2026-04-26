@@ -280,7 +280,7 @@ export async function handleGetAttachment(
 }
 
 // PUT /api/ciphers/{cipherId}/attachment/{attachmentId}/metadata
-// 修正旧附件的加密元数据，供官方客户端按当前 Bitwarden 契约解密。
+// 修正舊附件的加密後設資料，供官方客戶端按當前 Bitwarden 契約解密。
 export async function handleUpdateAttachmentMetadata(
   request: Request,
   env: Env,

@@ -1,12 +1,12 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Project Wiki/ 项目文档
+  - name: Project Wiki/ 專案文件
     url: https://github.com/shuaiplus/nodewarden/wiki
     about: |
       Please check the documentation for common questions and troubleshooting steps.
-      请先查看文档，常见问题和排查步骤可能已经覆盖了你的问题。
-  - name: Project Discussions / 讨论区
+      請先檢視文件，常見問題和排查步驟可能已經覆蓋了你的問題。
+  - name: Project Discussions / 討論區
     url: https://github.com/shuaiplus/nodewarden/discussions
     about: |
       For general questions, feature discussions, or if you're not sure which template to use, please post in the Discussions section.
-      如果你有一般性问题、功能讨论，或者不确定使用哪个模板，请在讨论区发帖。
+      如果你有一般性問題、功能討論，或者不確定使用哪個模板，請在討論區發帖。

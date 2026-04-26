@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  運行於 Cloudflare Workers 上的第三方 Bitwarden 相容服務端。
+  執行於 Cloudflare Workers 上的第三方 Bitwarden 相容服務端。
 </p>
 
 [![Powered by Cloudflare](https://img.shields.io/badge/Powered%20by-Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
@@ -13,13 +13,13 @@
 
 [更新日誌](./RELEASE_NOTES.md) | [回報問題](https://github.com/shuaiplus/NodeWarden/issues/new/choose) | [最新發布](https://github.com/shuaiplus/NodeWarden/releases/latest)
 
-[文件首頁](./nodewarden.wiki/Home.md) | [快速開始](./nodewarden.wiki/快速開始.md)
+[檔案首頁](./nodewarden.wiki/Home.md) | [快速開始](./nodewarden.wiki/快速開始.md)
 
 [Telegram 頻道](https://t.me/NodeWarden_News) | [Telegram 群組](https://t.me/NodeWarden_Official)
 
 English: [`README_EN.md`](./README_EN.md)
 
-> **免責聲明**  
+> **免責宣告**  
 > 本專案僅供學習與交流使用，請定期備份您的密碼庫。  
 > 本專案與 Bitwarden 官方無關，請勿向 Bitwarden 官方回報 NodeWarden 的問題。
 
@@ -30,15 +30,15 @@ English: [`README_EN.md`](./README_EN.md)
 | 功能 | Bitwarden | NodeWarden | 說明 |
 |---|---|---|---|
 | 網頁密碼庫 | ✅ | ✅ | **原創 Web Vault 介面** |
-| 全量同步 `/api/sync` | ✅ | ✅ | 已針對官方客戶端進行相容性優化 |
+| 全量同步 `/api/sync` | ✅ | ✅ | 已針對官方客戶端進行相容性最佳化 |
 | 附件上傳 / 下載 | ✅ | ✅ | Cloudflare R2 或 KV |
 | Send | ✅ | ✅ | 支援文字與檔案 Send |
 | 匯入 / 匯出 | ✅ | ✅ | 支援 Bitwarden JSON / CSV / **ZIP 匯入（含附件）** |
 | **雲端備份中心** | ❌ | ✅ | **支援 WebDAV / E3 排程備份** |
-| 密碼提示（網頁端） | ⚠️ 有限 | ✅ | **無需發送電子郵件** |
+| 密碼提示（網頁端） | ⚠️ 有限 | ✅ | **無需傳送電子郵件** |
 | TOTP / Steam TOTP | ✅ | ✅ | 含 `steam://` 支援 |
 | 多使用者 | ✅ | ✅ | 支援邀請碼註冊 |
-| 組織 / 集合 / 成員權限 | ✅ | ❌ | 尚未實作 |
+| 組織 / 集合 / 成員許可權 | ✅ | ❌ | 尚未實作 |
 | 登入 2FA | ✅ | ⚠️ 部分支援 | 目前僅支援使用者層級 TOTP |
 | SSO / SCIM / 企業目錄 | ✅ | ❌ | 尚未實作 |
 
@@ -67,14 +67,14 @@ English: [`README_EN.md`](./README_EN.md)
 
 > [!TIP] 
 > 預設 R2 與可選 KV 的差異：
->   | 儲存方式 | 是否需要綁定信用卡 | 單一附件/Send 檔案上限 | 免費額度 |
+>   | 儲存方式 | 是否需要繫結信用卡 | 單一附件/Send 檔案上限 | 免費額度 |
 >   |---|---|---|---|
 >   | R2 | 需要 | 100 MB（軟限制可調整） | 10 GB |
 >   | KV | 不需要 | 25 MiB（Cloudflare 限制） | 1 GB |
 
 
 ## 更新方式：
-- 手動：開啟您 Fork 的 GitHub 儲存庫，看到頂部同步提示後，點擊 `Sync fork` ➜ `Update branch`
+- 手動：開啟您 Fork 的 GitHub 儲存庫，看到頂部同步提示後，點選 `Sync fork` ➜ `Update branch`
 - 自動：進入您的 Fork 儲存庫 ➜ `Actions` ➜ `Sync upstream` ➜ `Enable workflow`，將於每天凌晨 3 點自動同步上游。
 
 
@@ -146,7 +146,7 @@ LGPL-3.0 License
 
 - [Bitwarden](https://bitwarden.com/) - 原始設計與客戶端
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - 服務端實作參考
-- [Cloudflare Workers](https://workers.cloudflare.com/) - 無伺服器平台
+- [Cloudflare Workers](https://workers.cloudflare.com/) - 無伺服器平臺
 
 ---
 
