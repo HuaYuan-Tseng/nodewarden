@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  執行於 Cloudflare Workers 上的第三方 Bitwarden 相容服務端。
+  運作於 Cloudflare Workers 上的第三方 Bitwarden 相容伺服端。
 </p>
 
 [![Powered by Cloudflare](https://img.shields.io/badge/Powered%20by-Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
@@ -13,7 +13,7 @@
 
 [更新日誌](./RELEASE_NOTES.md) | [回報問題](https://github.com/shuaiplus/NodeWarden/issues/new/choose) | [最新發布](https://github.com/shuaiplus/NodeWarden/releases/latest)
 
-[檔案首頁](./nodewarden.wiki/Home.md) | [快速開始](./nodewarden.wiki/快速開始.md)
+[文件首頁](./nodewarden.wiki/Home.md) | [快速開始](./nodewarden.wiki/快速開始.md)
 
 [Telegram 頻道](https://t.me/NodeWarden_News) | [Telegram 群組](https://t.me/NodeWarden_Official)
 
@@ -25,7 +25,7 @@ English: [`README_EN.md`](./README_EN.md)
 
 ---
 
-## 與 Bitwarden 官方服務端功能比較
+## 與 Bitwarden 官方伺服端功能比較
 
 | 功能 | Bitwarden | NodeWarden | 說明 |
 |---|---|---|---|
@@ -145,7 +145,7 @@ LGPL-3.0 License
 ## 致謝
 
 - [Bitwarden](https://bitwarden.com/) - 原始設計與客戶端
-- [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - 服務端實作參考
+- [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - 伺服端實作參考
 - [Cloudflare Workers](https://workers.cloudflare.com/) - 無伺服器平臺
 
 ---

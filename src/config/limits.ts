@@ -22,7 +22,7 @@ export const LIMITS = {
     // JWT 金鑰最小長度要求。
     jwtSecretMinLength: 32,
     // Default PBKDF2 iterations for account creation/prelogin fallback.
-    // 賬戶建立與預登入回退使用的預設 PBKDF2 迭代次數。
+    // 帳戶建立與預先登入回退使用的預設 PBKDF2 迭代次數。
     defaultKdfIterations: 600000,
     // clientSecret length
     // clientSecret 長度
@@ -101,7 +101,7 @@ export const LIMITS = {
     // 客戶端未傳 pageSize 時的預設分頁大小。
     defaultPageSize: 100,
     // Hard maximum page size accepted by server.
-    // 服務端允許的最大分頁大小。
+    // 伺服端允許的最大分頁大小。
     maxPageSize: 500,
   },
   cors: {

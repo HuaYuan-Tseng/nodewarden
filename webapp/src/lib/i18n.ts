@@ -1,4 +1,4 @@
-type Locale = 'en' | 'zh-CN';
+type Locale = 'en' | 'zh-TW';
 
 const LOCALE_STORAGE_KEY = 'nodewarden.locale';
 
@@ -753,14 +753,14 @@ const messages: Record<Locale, Record<string, string>> = {
     txt_windows_desktop: "Windows Desktop",
     txt_yes: "Yes",
   },
-  'zh-CN': {},
+  'zh-TW': {},
 };
 
-const zhCNOverrides: Record<string, string> = {
+const zhTWOverrides: Record<string, string> = {
   nav_my_vault: '我的密碼庫',
   nav_sends: 'Send',
   nav_admin_panel: '使用者管理',
-  nav_account_settings: '賬戶設定',
+  nav_account_settings: '帳戶設定',
   nav_device_management: '裝置管理',
   nav_backup_strategy: '雲端備份',
   nav_import_export: '匯入匯出',
@@ -771,8 +771,8 @@ const zhCNOverrides: Record<string, string> = {
   txt_backup_export: '匯出備份',
   txt_backup_import: '還原',
   txt_backup_include_attachments: '包含附件',
-  txt_backup_export_description: '下載一個完整的例項備份 ZIP，手動保管即可。',
-  txt_backup_import_description: '上傳之前匯出的備份 ZIP，並還原到當前例項。',
+  txt_backup_export_description: '下載一個完整的執行個體備份 ZIP，手動保管即可。',
+  txt_backup_import_description: '上傳之前匯出的備份 ZIP，並還原到當前執行個體。',
   txt_backup_exporting: '正在匯出...',
   txt_backup_importing: '正在還原...',
   txt_backup_restoring: '正在還原...',
@@ -789,11 +789,11 @@ const zhCNOverrides: Record<string, string> = {
   txt_backup_import_failed: '備份還原失敗',
   txt_backup_restore_failed: '備份還原失敗',
   txt_backup_integrity_check_failed: '備份完整性校驗失敗',
-  txt_backup_center_title: '例項備份',
+  txt_backup_center_title: '執行個體備份',
   txt_backup_center_description: '把本地匯出和遠端自動備份放在一起管理，既方便手動恢復，也能每天自動留一份。',
-  txt_backup_restore_note: '還原會覆蓋當前例項；如果當前已有資料，系統會要求你確認“清空後還原”。',
+  txt_backup_restore_note: '還原會覆蓋當前執行個體；如果當前已有資料，系統會要求你確認“清空後還原”。',
   txt_backup_manual: '手動備份',
-  txt_backup_manual_description: '現在就匯出 ZIP，或者把之前匯出的 ZIP 恢復到當前例項。',
+  txt_backup_manual_description: '現在就匯出 ZIP，或者把之前匯出的 ZIP 恢復到當前執行個體。',
   txt_backup_destinations_title: '備份地點',
   txt_backup_destinations_description: '把多個 WebDAV、E3 地點統一放在這裡。左側選一個，右側編輯和瀏覽它。',
   txt_backup_recommend_title: '推薦儲存庫',
@@ -803,36 +803,36 @@ const zhCNOverrides: Record<string, string> = {
   txt_backup_recommend_empty: '暫時沒有推薦',
   txt_backup_recommend_referral_label: '推薦碼',
   txt_backup_recommend_referral_note: '註冊時填寫可額外獲得 5 GB，作者會收到 2 GB。',
-  txt_backup_recommend_infinicloud_summary: '只需郵箱即可註冊。免費 20 GB；填寫推薦碼後總計 25 GB。',
-  txt_backup_recommend_infinicloud_step_1: '先用郵箱註冊一個 InfiniCLOUD 賬號。',
+  txt_backup_recommend_infinicloud_summary: '只需電子郵件即可註冊。免費 20 GB；填寫推薦碼後總計 25 GB。',
+  txt_backup_recommend_infinicloud_step_1: '先用電子郵件註冊一個 InfiniCLOUD 帳號。',
   txt_backup_recommend_infinicloud_step_2_prefix: '進入',
   txt_backup_recommend_infinicloud_step_2_suffix: '，然後開啟 Turn on Apps Connection。',
   txt_backup_recommend_infinicloud_step_3: 'Connection ID 用作 WebDAV 使用者名稱，Apps Password 用作 WebDAV 密碼。',
-  txt_backup_recommend_infinicloud_step_4: '在 My Page 最下面的 Referral Bonus 填入推薦碼 2HC5E，可額外獲得 5 GB。',
+  txt_backup_recommend_infinicloud_step_4: '在 My Page 最下方的 Referral Bonus 填入推薦碼 2HC5E，可額外獲得 5 GB。',
   txt_backup_recommend_open_password: '密碼設定',
   txt_backup_recommend_open_storage: '開啟儲存連線',
-  txt_backup_recommend_koofr_summary: '只需郵箱即可註冊使用。免費 10 GB，並且可以透過 WebDAV 接到 Google Drive、OneDrive、Dropbox。',
+  txt_backup_recommend_koofr_summary: '只需電子郵件即可註冊使用。免費 10 GB，並且可以透過 WebDAV 接到 Google Drive、OneDrive、Dropbox。',
   txt_backup_recommend_koofr_password_link: '密碼設定',
   txt_backup_recommend_koofr_storage_link: 'Storage',
-  txt_backup_recommend_koofr_step_1: '先用郵箱註冊一個 Koofr 賬號。',
+  txt_backup_recommend_koofr_step_1: '先用電子郵件註冊一個 Koofr 帳號。',
   txt_backup_recommend_koofr_step_2_prefix: '開啟',
-  txt_backup_recommend_koofr_step_2_suffix: '，生成新的應用密碼。註冊郵箱用作 WebDAV 使用者名稱，應用密碼用作 WebDAV 密碼。',
+  txt_backup_recommend_koofr_step_2_suffix: '，生成新的應用密碼。註冊電子郵件用作 WebDAV 使用者名稱，應用密碼用作 WebDAV 密碼。',
   txt_backup_recommend_koofr_step_3: 'Koofr 自己的 WebDAV 地址是 https://app.koofr.net/dav/Koofr。',
-  txt_backup_recommend_koofr_step_4: 'Koofr 最方便的地方，是還能接 Google Drive、OneDrive、Dropbox 這三大雲盤；免費使用者最多能連線兩個。',
+  txt_backup_recommend_koofr_step_4: 'Koofr 最方便的地方，是還能接 Google Drive、OneDrive、Dropbox 這三大雲端硬碟；免費使用者最多能連接兩個。',
   txt_backup_recommend_koofr_step_5_prefix: '開啟',
   txt_backup_recommend_koofr_step_5_suffix: '，在左側欄點選“連線”，選擇你要連線的儲存即可。',
-  txt_backup_recommend_koofr_dav_intro: '連線好儲存後，賬號和應用密碼都不變，只需要切換 WebDAV 地址：',
+  txt_backup_recommend_koofr_dav_intro: '連線好儲存後，帳號和應用密碼都不變，只需要切換 WebDAV 地址：',
   txt_backup_recommend_koofr_dav_self: 'Koofr',
-  txt_backup_recommend_pcloud_summary: '只需郵箱即可註冊。免費最高 10 GB，並且自帶標準 WebDAV 訪問。',
-  txt_backup_recommend_pcloud_step_1: '先用郵箱註冊一個 pCloud 賬號。',
+  txt_backup_recommend_pcloud_summary: '只需電子郵件即可註冊。免費最高 10 GB，並且自帶標準 WebDAV 訪問。',
+  txt_backup_recommend_pcloud_step_1: '先用電子郵件註冊一個 pCloud 帳號。',
   txt_backup_recommend_pcloud_step_2: 'WebDAV 地址填寫 https://webdav.pcloud.com/ 。',
-  txt_backup_recommend_pcloud_step_3: '註冊郵箱用作 WebDAV 使用者名稱，註冊密碼用作 WebDAV 密碼。',
+  txt_backup_recommend_pcloud_step_3: '註冊電子郵件用作 WebDAV 使用者名稱，註冊密碼用作 WebDAV 密碼。',
   txt_backup_add_destination: '新增地點',
-  txt_backup_schedule_panel_title: '自動備份計劃',
-  txt_backup_schedule_panel_note: '每個備份地點都可以單獨配置自己的每日自動備份計劃。',
-  txt_backup_scheduled_target: '當前計劃目標',
-  txt_backup_destination_active_badge: '已啟用計劃',
-  txt_backup_destination_idle_badge: '未啟用計劃',
+  txt_backup_schedule_panel_title: '自動備份計畫',
+  txt_backup_schedule_panel_note: '每個備份地點都可以單獨配置自己的每日自動備份計畫。',
+  txt_backup_scheduled_target: '當前計畫目標',
+  txt_backup_destination_active_badge: '已啟用計畫',
+  txt_backup_destination_idle_badge: '未啟用計畫',
   txt_backup_destination_last_success: '上次成功：{time}',
   txt_backup_destination_never_run: '還沒有成功執行過',
   txt_backup_destination_detail_title: '地點詳情',
@@ -930,7 +930,7 @@ const zhCNOverrides: Record<string, string> = {
   txt_backup_restore_progress_remote_data_title: '正在寫入密碼庫資料',
   txt_backup_restore_progress_remote_data_detail: '伺服器正在把使用者、資料夾、密碼條目和相關後設資料寫入影子表。',
   txt_backup_restore_progress_remote_files_title: '正在恢復遠端附件',
-  txt_backup_restore_progress_remote_files_detail: '伺服器正在從遠端儲存讀取所需附件，並寫回到當前例項的附件儲存。',
+  txt_backup_restore_progress_remote_files_detail: '伺服器正在從遠端儲存讀取所需附件，並寫回到當前執行個體的附件儲存。',
   txt_backup_restore_progress_remote_finalize_title: '正在校驗並完成切換',
   txt_backup_restore_progress_remote_finalize_detail: '伺服器正在執行最終校驗，校驗透過後會把已驗證的資料切換為正式資料。',
   txt_backup_remote_loading: '正在讀取遠端備份...',
@@ -991,11 +991,11 @@ const zhCNOverrides: Record<string, string> = {
   txt_backup_include_attachments_help_button: '附件備份說明',
   txt_backup_include_attachments_help: '附件會以增量方式儲存在遠端的 attachments 資料夾中，後續備份通常只上傳新增檔案。你在本地刪除附件時，已經備份到遠端的舊檔案不會自動刪除。恢復時會按需從 attachments 資料夾讀取對應附件，找不到的附件會自動跳過。',
   txt_backup_enable_schedule: '啟用每日自動備份',
-  txt_backup_schedule_note: 'Worker 每 5 分鐘檢查一次計劃。會先按你選擇的時區和開始時間起跑，再按小時間隔繼續執行；到了下一天，會重新從開始時間開始。',
+  txt_backup_schedule_note: 'Worker 每 5 分鐘檢查一次計畫。會先按你選擇的時區和開始時間啟動，再按小時間隔繼續執行；到了下一天，會重新從開始時間開始。',
   txt_backup_schedule_disabled: '未啟用',
-  txt_backup_schedule_status: '計劃狀態',
+  txt_backup_schedule_status: '計畫狀態',
   txt_backup_schedule_summary: '從 {time} 開始，每隔 {interval} 小時（{timezone}）',
-  txt_backup_schedule_empty: '還沒有啟用任何自動備份計劃',
+  txt_backup_schedule_empty: '還沒有啟用任何自動備份計畫',
   txt_backup_last_success: '上次成功時間',
   txt_backup_last_target: '上次備份位置',
   txt_backup_last_file: '上次備份檔案',
@@ -1022,22 +1022,22 @@ const zhCNOverrides: Record<string, string> = {
   txt_backup_file_required: '請選擇備份檔案',
   txt_backup_no_file_selected: '尚未選擇備份檔案',
   txt_backup_selected_file_name: '已選擇檔案：{name}',
-  txt_backup_replace_confirm_title: '替換當前例項資料',
-  txt_backup_replace_confirm_message: '當前例項裡已經有資料。確認後，系統會先完成校驗與恢復準備，只有在恢復成功後才會用所選備份替換當前例項資料。是否繼續？',
+  txt_backup_replace_confirm_title: '替換當前執行個體資料',
+  txt_backup_replace_confirm_message: '當前執行個體裡已經有資料。確認後，系統會先完成校驗與恢復準備，只有在恢復成功後才會用所選備份替換當前執行個體資料。是否繼續？',
   txt_backup_clear_and_import: '替換並匯入',
   txt_backup_clear_and_restore: '替換並還原',
   txt_sign_out: '退出登入',
   txt_log_in: '登入',
   txt_logging_in: '正在登入...',
   txt_log_out: '退出',
-  txt_create_account: '建立賬戶',
+  txt_create_account: '建立帳戶',
   txt_registering: '正在註冊...',
   txt_back_to_login: '返回登入',
   txt_unlock: '解鎖',
   txt_unlocking: '正在解鎖...',
   txt_unlock_vault: '解鎖密碼庫',
   txt_master_password: '主密碼',
-  txt_email: '郵箱',
+  txt_email: '電子郵件',
   txt_name: '名稱',
   txt_password: '密碼',
   txt_confirm_password: '確認密碼',
@@ -1069,18 +1069,18 @@ const zhCNOverrides: Record<string, string> = {
   txt_select_all: '全選',
   txt_select_duplicate_items: '選擇重複項',
   txt_delete_selected: '刪除',
-  txt_all_items: '所有專案',
+  txt_all_items: '所有項目',
   txt_favorites: '收藏',
   txt_duplicates: '重複項',
   txt_trash: '回收站',
   txt_folder: '資料夾',
   txt_folders: '資料夾',
   txt_no_folder: '無資料夾',
-  txt_no_items: '沒有專案',
+  txt_no_items: '沒有項目',
   txt_no_username: '無使用者名稱',
   txt_no_verification_codes: '沒有驗證碼',
   txt_no_sends: '沒有傳送',
-  txt_select_an_item: '請選擇一個專案',
+  txt_select_an_item: '請選擇一個項目',
   txt_login: '登入',
   txt_card: '銀行卡',
   txt_identity: '身份',
@@ -1090,12 +1090,12 @@ const zhCNOverrides: Record<string, string> = {
   txt_login_credentials: '登入資訊',
   txt_card_details: '銀行卡詳情',
   txt_identity_details: '身份詳情',
-  txt_autofill_options: '自動填充選項',
+  txt_autofill_options: '自動填入選項',
   txt_additional_options: '附加選項',
   txt_custom_fields: '自定義欄位',
   txt_notes: '備註',
   txt_replace_device_name_with_note: '為這臺裝置設定自定義名稱，不會改變系統識別到的裝置型別。',
-  txt_item_history: '專案歷史',
+  txt_item_history: '項目歷史',
   txt_password_history: '密碼歷史記錄',
   txt_password_updated_value: '密碼新於: {value}',
   txt_last_edited_value: '最後編輯：{value}',
@@ -1200,13 +1200,13 @@ const zhCNOverrides: Record<string, string> = {
   txt_or: '或',
   txt_no_name: '（無名稱）',
   txt_are_you_sure_you_want_to_log_out: '確認要退出登入嗎？',
-  txt_delete_item: '刪除專案',
+  txt_delete_item: '刪除項目',
   txt_delete_passkey: '刪除通行金鑰',
-  txt_delete_selected_items: '刪除所選專案',
-  txt_move_selected_items: '移動所選專案',
+  txt_delete_selected_items: '刪除所選項目',
+  txt_move_selected_items: '移動所選項目',
   txt_create_folder: '建立資料夾',
   txt_folder_name: '資料夾名稱',
-  txt_unlock_item: '解鎖專案',
+  txt_unlock_item: '解鎖項目',
   txt_use_recovery_code: '使用恢復程式碼',
   txt_two_step_verification: '兩步驗證',
   txt_recover_two_step_login: '恢復兩步登入',
@@ -1262,9 +1262,9 @@ const zhCNOverrides: Record<string, string> = {
   txt_all_invites_deleted: '已刪除所有邀請碼',
   txt_all_sends: '所有傳送',
   txt_android: '安卓',
-  txt_are_you_sure_you_want_to_delete_count_selected_items: '確認刪除所選的 {count} 個專案？',
-  txt_are_you_sure_you_want_to_delete_count_selected_items_permanently: '確認永久刪除所選的 {count} 個專案？',
-  txt_are_you_sure_you_want_to_delete_this_item: '確認刪除此專案？',
+  txt_are_you_sure_you_want_to_delete_count_selected_items: '確認刪除所選的 {count} 個項目？',
+  txt_are_you_sure_you_want_to_delete_count_selected_items_permanently: '確認永久刪除所選的 {count} 個項目？',
+  txt_are_you_sure_you_want_to_delete_this_item: '確認刪除此項目？',
   txt_are_you_sure_you_want_to_delete_this_passkey: '確認刪除這個通行金鑰？',
   txt_authenticator_key: '驗證器金鑰',
   txt_brand: '品牌',
@@ -1283,21 +1283,21 @@ const zhCNOverrides: Record<string, string> = {
   txt_country: '國家',
   txt_create: '建立',
   txt_create_folder_failed: '建立資料夾失敗',
-  txt_create_item_failed: '建立專案失敗',
+  txt_create_item_failed: '建立項目失敗',
   txt_create_send_failed: '建立傳送失敗',
   txt_current_new_password_is_required: '需要輸入當前密碼和新密碼',
   txt_decrypt_failed: '（解密失敗）',
   txt_decrypt_failed_2: '解密失敗',
   txt_delete_all_invite_codes_active_inactive: '刪除所有邀請碼（有效/無效）？',
   txt_delete_all_invites: '刪除所有邀請碼',
-  txt_delete_item_failed: '刪除專案失敗',
+  txt_delete_item_failed: '刪除項目失敗',
   txt_delete_permanently: '永久刪除',
   txt_delete_send_failed: '刪除傳送失敗',
   txt_delete_this_user_and_all_user_data: '刪除此使用者及其所有資料？',
   txt_delete_user: '刪除使用者',
-  txt_deleted_selected_items: '已刪除所選專案',
-  txt_deleted_selected_items_permanently: '已永久刪除所選專案',
-  txt_restored_selected_items: '已恢復所選專案',
+  txt_deleted_selected_items: '已刪除所選項目',
+  txt_deleted_selected_items_permanently: '已永久刪除所選項目',
+  txt_restored_selected_items: '已恢復所選項目',
   txt_deleted_selected_sends: '已刪除所選傳送',
   txt_device_authorization_revoked: '裝置信任已撤銷',
   txt_device_removed: '裝置已移除',
@@ -1306,14 +1306,14 @@ const zhCNOverrides: Record<string, string> = {
   txt_download_failed: '下載失敗',
   txt_edge_browser: 'Edge 瀏覽器',
   txt_edge_extension: 'Edge 擴充套件',
-  txt_email_password_and_recovery_code_are_required: '需要輸入郵箱、密碼和恢復程式碼',
+  txt_email_password_and_recovery_code_are_required: '需要輸入電子郵件、密碼和恢復程式碼',
   txt_enable_totp_failed: '啟用 TOTP 失敗',
   txt_encrypted_file: '加密檔案',
   txt_encrypted_file_2: '加密檔案',
   txt_enter_a_folder_name: '請輸入資料夾名稱',
   txt_enter_master_password_to_disable_two_step_verification: '輸入主密碼以禁用兩步驗證',
   txt_enter_master_password_to_continue: '輸入主密碼以繼續',
-  txt_enter_master_password_to_view_this_item: '輸入主密碼以檢視此專案',
+  txt_enter_master_password_to_view_this_item: '輸入主密碼以檢視此項目',
   txt_expiry: '有效期',
   txt_expiry_month: '有效期月',
   txt_expiry_year: '有效期年',
@@ -1328,11 +1328,11 @@ const zhCNOverrides: Record<string, string> = {
   txt_invite_created: '邀請碼已建立',
   txt_invite_revoked: '邀請碼已撤銷',
   txt_ios: 'iOS',
-  txt_item: '專案',
-  txt_item_created: '專案已建立',
-  txt_item_deleted: '專案已刪除',
-  txt_item_name_is_required: '專案名稱不能為空',
-  txt_item_updated: '專案已更新',
+  txt_item: '項目',
+  txt_item_created: '項目已建立',
+  txt_item_deleted: '項目已刪除',
+  txt_item_name_is_required: '項目名稱不能為空',
+  txt_item_updated: '項目已更新',
   txt_link_copied: '連結已複製',
   txt_linked: '已關聯',
   txt_linux_desktop: 'Linux 桌面端',
@@ -1344,7 +1344,7 @@ const zhCNOverrides: Record<string, string> = {
   txt_master_password_is_required: '主密碼不能為空',
   txt_master_password_is_required_2: '請輸入主密碼',
   txt_master_password_must_be_at_least_12_chars: '主密碼至少需要 12 個字元',
-  txt_moved_selected_items: '已移動所選專案',
+  txt_moved_selected_items: '已移動所選項目',
   txt_name_is_required: '名稱不能為空',
   txt_new_password_must_be_at_least_12_chars: '新密碼至少需要 12 個字元',
   txt_new_passwords_do_not_match: '兩次輸入的新密碼不一致',
@@ -1364,14 +1364,14 @@ const zhCNOverrides: Record<string, string> = {
   txt_show_password_hint: '檢視密碼提示',
   txt_hide_password_hint: '隱藏密碼提示',
   txt_loading_password_hint: '正在載入提示...',
-  txt_password_hint_not_set: '這個郵箱沒有可顯示的密碼提示。',
+  txt_password_hint_not_set: '這個電子郵件沒有可顯示的密碼提示。',
   txt_password_hint_load_failed: '載入密碼提示失敗',
   txt_password_hint_too_long: '密碼提示最多隻能輸入 120 個字元',
   txt_passkey: '通行金鑰',
   txt_passkeys: '通行金鑰',
   txt_passkey_created_at_value: '建立於 {value}',
   txt_phone: '電話',
-  txt_please_input_email_and_password: '請輸入郵箱和密碼',
+  txt_please_input_email_and_password: '請輸入電子郵件和密碼',
   txt_please_input_master_password: '請輸入主密碼',
   txt_please_input_totp_code: '請輸入 TOTP 驗證碼',
   txt_please_select_a_file: '請選擇檔案',
@@ -1429,7 +1429,7 @@ const zhCNOverrides: Record<string, string> = {
   txt_this_send_is_password_protected: '此傳送受密碼保護',
   txt_totp_disabled: 'TOTP 已禁用',
   txt_totp_enabled: 'TOTP 已啟用',
-  txt_totp_is_enabled_for_this_account: '此賬戶已啟用 TOTP。',
+  txt_totp_is_enabled_for_this_account: '此帳戶已啟用 TOTP。',
   txt_total_items_count: '共 {count} 項',
   txt_totp_verify_failed: 'TOTP 驗證失敗',
   txt_switch_to_dark_mode: '切換到暗黑模式',
@@ -1443,7 +1443,7 @@ const zhCNOverrides: Record<string, string> = {
   txt_all_devices_removed: '已移除所有裝置',
   txt_remove_device_failed: '移除裝置失敗',
   txt_remove_all_devices_failed: '移除所有裝置失敗',
-  txt_update_item_failed: '更新專案失敗',
+  txt_update_item_failed: '更新項目失敗',
   txt_update_send_failed: '更新傳送失敗',
   txt_use_your_one_time_recovery_code_to_disable_two_step_verification: '使用一次性恢復程式碼禁用兩步驗證。',
   txt_user_deleted: '使用者已刪除',
@@ -1461,8 +1461,8 @@ const zhCNOverrides: Record<string, string> = {
   txt_jwt_reason_missing: '未檢測到 JWT_SECRET。',
   txt_jwt_reason_default: 'JWT_SECRET 仍在使用預設示例值。',
   txt_jwt_reason_too_short: 'JWT_SECRET 長度過短，至少需要 {min} 位。',
-  txt_jwt_how_to_fix_add: '處理步驟（新增 JWT_SECRET）',
-  txt_jwt_how_to_fix_replace: '處理步驟（更換 JWT_SECRET）',
+  txt_jwt_how_to_fix_add: '修正步驟（新增 JWT_SECRET）',
+  txt_jwt_how_to_fix_replace: '修正步驟（更換 JWT_SECRET）',
   txt_jwt_add_step_1: '使用下方 32 位隨機生成器，複製一個新金鑰。',
   txt_jwt_add_step_2_prefix: '到 Cloudflare 控制檯 -> Workers 和 Pages -> 你的服務 -> ',
   txt_jwt_add_step_2_suffix: ' -> 變數和機密 -> 新增',
@@ -1477,8 +1477,8 @@ const zhCNOverrides: Record<string, string> = {
   txt_jwt_secret_value_label: '值：',
   txt_jwt_secret_value_requirement: '最低 {min} 位隨機字元',
   txt_jwt_what_is: 'JWT 是什麼',
-  txt_jwt_what_is_body: 'JWT_SECRET 是服務端用來簽發和校驗登入令牌的金鑰。如果它缺失、過短，或者仍然使用示例值，例項就不能安全地正常使用。',
-  txt_how_to_fix: '處理步驟（新增 / 更換）',
+  txt_jwt_what_is_body: 'JWT_SECRET 是伺服端用來簽發和校驗登入令牌的金鑰。如果它缺失、過短，或者仍然使用示例值，執行個體就不能安全地正常使用。',
+  txt_how_to_fix: '修正步驟（新增 / 更換）',
   txt_jwt_fix_step_1: '你可以繼續下一步，不影響使用。',
   txt_jwt_fix_step_2: '如果當前金鑰不是強隨機值，建議使用下方 32 位生成器。',
   txt_jwt_fix_step_3: '到 Cloudflare 控制檯 -> Workers 和 Pages -> 你的服務 -> 設定 -> 變數和機密，更新 JWT_SECRET。',
@@ -1487,10 +1487,10 @@ const zhCNOverrides: Record<string, string> = {
   txt_copied: '已複製',
 };
 
-zhCNOverrides.txt_lock = '鎖定';
-zhCNOverrides.txt_menu = '選單';
-zhCNOverrides.txt_settings = '設定';
-zhCNOverrides.txt_back = '返回';
+zhTWOverrides.txt_lock = '鎖定';
+zhTWOverrides.txt_menu = '選單';
+zhTWOverrides.txt_settings = '設定';
+zhTWOverrides.txt_back = '返回';
 messages.en.txt_auto_lock = 'Auto-lock';
 messages.en.txt_auto_lock_description = 'Locks after inactivity. Closing and reopening the page always starts locked.';
 messages.en.txt_auto_lock_updated = 'Auto-lock updated';
@@ -1512,36 +1512,36 @@ messages.en.txt_lock_after_5_minutes = 'After 5 minutes';
 messages.en.txt_lock_after_15_minutes = 'After 15 minutes';
 messages.en.txt_lock_after_30_minutes = 'After 30 minutes';
 messages.en.txt_lock_after_never = 'Never for inactivity';
-zhCNOverrides.txt_auto_lock = '會話超時';
-zhCNOverrides.txt_auto_lock_description = '頁面閒置後執行會話超時動作；關閉頁面或瀏覽器後再次開啟始終進入鎖定頁。';
-zhCNOverrides.txt_auto_lock_updated = '會話超時已更新';
-zhCNOverrides.txt_session_timeout = '會話超時';
-zhCNOverrides.txt_session_timeout_updated = '會話超時已更新';
-zhCNOverrides.txt_timeout_time = '超時時間';
-zhCNOverrides.txt_timeout_action = '超時動作';
-zhCNOverrides.txt_timeout_action_logout = '登出';
-zhCNOverrides.txt_timeout_action_lock = '鎖定';
-zhCNOverrides.txt_in_planning = '構思中';
-zhCNOverrides.txt_security_preferences = '安全偏好';
-zhCNOverrides.txt_timeout_1_minute = '1 分鐘';
-zhCNOverrides.txt_timeout_5_minutes = '5 分鐘';
-zhCNOverrides.txt_timeout_15_minutes = '15 分鐘';
-zhCNOverrides.txt_timeout_30_minutes = '30 分鐘';
-zhCNOverrides.txt_timeout_never = '從不';
-zhCNOverrides.txt_lock_after_1_minute = '閒置 1 分鐘後';
-zhCNOverrides.txt_lock_after_5_minutes = '閒置 5 分鐘後';
-zhCNOverrides.txt_lock_after_15_minutes = '閒置 15 分鐘後';
-zhCNOverrides.txt_lock_after_30_minutes = '閒置 30 分鐘後';
-zhCNOverrides.txt_lock_after_never = '不因閒置鎖定';
-zhCNOverrides.txt_attachments = '附件';
-zhCNOverrides.txt_upload_attachments = '上傳附件';
-zhCNOverrides.txt_new_attachments = '待上傳附件';
-zhCNOverrides.txt_attachment = '附件';
-zhCNOverrides.txt_uploading_attachment_named = '正在上傳 {name}...';
-zhCNOverrides.txt_uploading_attachment_named_percent = '正在上傳 {name} {percent}%';
-zhCNOverrides.txt_uploading_file_named = '正在上傳 {name}...';
-zhCNOverrides.txt_uploading_file_named_percent = '正在上傳 {name} {percent}%';
-zhCNOverrides.txt_marked_for_removal_count = '儲存後將刪除 {count} 個附件';
+zhTWOverrides.txt_auto_lock = '會話超時';
+zhTWOverrides.txt_auto_lock_description = '頁面閒置後執行會話超時動作；關閉頁面或瀏覽器後再次開啟始終進入鎖定頁。';
+zhTWOverrides.txt_auto_lock_updated = '會話超時已更新';
+zhTWOverrides.txt_session_timeout = '會話超時';
+zhTWOverrides.txt_session_timeout_updated = '會話超時已更新';
+zhTWOverrides.txt_timeout_time = '超時時間';
+zhTWOverrides.txt_timeout_action = '超時動作';
+zhTWOverrides.txt_timeout_action_logout = '登出';
+zhTWOverrides.txt_timeout_action_lock = '鎖定';
+zhTWOverrides.txt_in_planning = '構思中';
+zhTWOverrides.txt_security_preferences = '安全偏好';
+zhTWOverrides.txt_timeout_1_minute = '1 分鐘';
+zhTWOverrides.txt_timeout_5_minutes = '5 分鐘';
+zhTWOverrides.txt_timeout_15_minutes = '15 分鐘';
+zhTWOverrides.txt_timeout_30_minutes = '30 分鐘';
+zhTWOverrides.txt_timeout_never = '從不';
+zhTWOverrides.txt_lock_after_1_minute = '閒置 1 分鐘後';
+zhTWOverrides.txt_lock_after_5_minutes = '閒置 5 分鐘後';
+zhTWOverrides.txt_lock_after_15_minutes = '閒置 15 分鐘後';
+zhTWOverrides.txt_lock_after_30_minutes = '閒置 30 分鐘後';
+zhTWOverrides.txt_lock_after_never = '不因閒置鎖定';
+zhTWOverrides.txt_attachments = '附件';
+zhTWOverrides.txt_upload_attachments = '上傳附件';
+zhTWOverrides.txt_new_attachments = '待上傳附件';
+zhTWOverrides.txt_attachment = '附件';
+zhTWOverrides.txt_uploading_attachment_named = '正在上傳 {name}...';
+zhTWOverrides.txt_uploading_attachment_named_percent = '正在上傳 {name} {percent}%';
+zhTWOverrides.txt_uploading_file_named = '正在上傳 {name}...';
+zhTWOverrides.txt_uploading_file_named_percent = '正在上傳 {name} {percent}%';
+zhTWOverrides.txt_marked_for_removal_count = '儲存後將刪除 {count} 個附件';
 messages.en.txt_import = 'Import';
 messages.en.txt_export = 'Export';
 messages.en.txt_format = 'Format';
@@ -1609,103 +1609,104 @@ messages.en.txt_unsupported_kdf_type = 'Unsupported kdfType: {type}';
 messages.en.txt_invalid_file_password = 'Invalid file password.';
 messages.en.txt_failed_to_map_attachments = 'Failed to map {count} attachment(s) to imported items.';
 
-zhCNOverrides.txt_import = '匯入';
-zhCNOverrides.txt_export = '匯出';
-zhCNOverrides.txt_format = '格式';
-zhCNOverrides.txt_source_file = '原始檔';
-zhCNOverrides.txt_folder_handling = '資料夾處理';
-zhCNOverrides.txt_import_folder_mode_original = '保留匯入檔案中的原始路徑';
-zhCNOverrides.txt_import_folder_mode_none = '不使用資料夾';
-zhCNOverrides.txt_import_folder_mode_target = '匯入到指定資料夾';
-zhCNOverrides.txt_target_folder = '目標資料夾';
-zhCNOverrides.txt_select_folder_placeholder = '-- 選擇資料夾 --';
-zhCNOverrides.txt_import_vault_data_hint = '將資料匯入到當前賬號。';
-zhCNOverrides.txt_export_vault_data_hint = '從當前賬號匯出資料。';
-zhCNOverrides.txt_encrypted_mode = '加密方式';
-zhCNOverrides.txt_account_verification = '賬號驗證';
-zhCNOverrides.txt_password_verification = '密碼驗證';
-zhCNOverrides.txt_file_password = '檔案密碼';
-zhCNOverrides.txt_zip_password_optional = 'ZIP 密碼（可選）';
-zhCNOverrides.txt_zip_password = 'ZIP 密碼';
-zhCNOverrides.txt_close = '關閉';
-zhCNOverrides.txt_total = '總計';
-zhCNOverrides.txt_import_success = '資料匯入成功';
-zhCNOverrides.txt_import_success_number_of_items = '一共匯入了 {count} 個專案。';
-zhCNOverrides.txt_import_attachment_summary = '附件已匯入 {imported}/{total} 個。';
-zhCNOverrides.txt_import_failed_attachments_title = '以下 {count} 個附件未匯入：';
-zhCNOverrides.txt_import_attachment_target_not_found = '沒有找到對應的匯入專案。';
-zhCNOverrides.txt_upload_attachment_failed = '附件上傳失敗。';
-zhCNOverrides.txt_import_file_password_required = '請輸入檔案密碼。';
-zhCNOverrides.txt_import_invalid_zip_password = 'ZIP 密碼錯誤。';
-zhCNOverrides.txt_export_completed = '匯出完成';
-zhCNOverrides.txt_export_failed = '匯出失敗';
-zhCNOverrides.txt_import_invalid_password_protected_file = '密碼保護匯出檔案格式無效。';
-zhCNOverrides.txt_import_decrypt_failed = '匯入檔案解密失敗。';
-zhCNOverrides.txt_import_empty_zip_archive = 'ZIP 壓縮包為空。';
-zhCNOverrides.txt_import_no_json_found_in_zip = 'ZIP 內未找到可匯入的 JSON 資料。';
-zhCNOverrides.txt_import_data_json_not_found = 'ZIP 內未找到 data.json。';
-zhCNOverrides.txt_import_zip_password_required = '該 ZIP 需要密碼。';
-zhCNOverrides.txt_import_invalid_json_file = 'JSON 檔案無效';
-zhCNOverrides.txt_import_failed = '匯入失敗';
-zhCNOverrides.txt_import_encrypted_file_title = '匯入加密檔案';
-zhCNOverrides.txt_import_encrypted_file_message = '該 Bitwarden 匯出檔案已加密，請輸入檔案密碼繼續。';
-zhCNOverrides.txt_import_encrypted_zip_title = '匯入加密 ZIP';
-zhCNOverrides.txt_import_encrypted_zip_message = '該 ZIP 壓縮包已加密，請輸入 ZIP 密碼繼續。';
+zhTWOverrides.txt_import = '匯入';
+zhTWOverrides.txt_export = '匯出';
+zhTWOverrides.txt_format = '格式';
+zhTWOverrides.txt_source_file = '原始檔';
+zhTWOverrides.txt_folder_handling = '資料夾處理';
+zhTWOverrides.txt_import_folder_mode_original = '保留匯入檔案中的原始路徑';
+zhTWOverrides.txt_import_folder_mode_none = '不使用資料夾';
+zhTWOverrides.txt_import_folder_mode_target = '匯入到指定資料夾';
+zhTWOverrides.txt_target_folder = '目標資料夾';
+zhTWOverrides.txt_select_folder_placeholder = '-- 選擇資料夾 --';
+zhTWOverrides.txt_import_vault_data_hint = '將資料匯入到當前帳號。';
+zhTWOverrides.txt_export_vault_data_hint = '從當前帳號匯出資料。';
+zhTWOverrides.txt_encrypted_mode = '加密方式';
+zhTWOverrides.txt_account_verification = '帳號驗證';
+zhTWOverrides.txt_password_verification = '密碼驗證';
+zhTWOverrides.txt_file_password = '檔案密碼';
+zhTWOverrides.txt_zip_password_optional = 'ZIP 密碼（可選）';
+zhTWOverrides.txt_zip_password = 'ZIP 密碼';
+zhTWOverrides.txt_close = '關閉';
+zhTWOverrides.txt_total = '總計';
+zhTWOverrides.txt_import_success = '資料匯入成功';
+zhTWOverrides.txt_import_success_number_of_items = '一共匯入了 {count} 個項目。';
+zhTWOverrides.txt_import_attachment_summary = '附件已匯入 {imported}/{total} 個。';
+zhTWOverrides.txt_import_failed_attachments_title = '以下 {count} 個附件未匯入：';
+zhTWOverrides.txt_import_attachment_target_not_found = '沒有找到對應的匯入項目。';
+zhTWOverrides.txt_upload_attachment_failed = '附件上傳失敗。';
+zhTWOverrides.txt_import_file_password_required = '請輸入檔案密碼。';
+zhTWOverrides.txt_import_invalid_zip_password = 'ZIP 密碼錯誤。';
+zhTWOverrides.txt_export_completed = '匯出完成';
+zhTWOverrides.txt_export_failed = '匯出失敗';
+zhTWOverrides.txt_import_invalid_password_protected_file = '密碼保護匯出檔案格式無效。';
+zhTWOverrides.txt_import_decrypt_failed = '匯入檔案解密失敗。';
+zhTWOverrides.txt_import_empty_zip_archive = 'ZIP 壓縮包為空。';
+zhTWOverrides.txt_import_no_json_found_in_zip = 'ZIP 內未找到可匯入的 JSON 資料。';
+zhTWOverrides.txt_import_data_json_not_found = 'ZIP 內未找到 data.json。';
+zhTWOverrides.txt_import_zip_password_required = '該 ZIP 需要密碼。';
+zhTWOverrides.txt_import_invalid_json_file = 'JSON 檔案無效';
+zhTWOverrides.txt_import_failed = '匯入失敗';
+zhTWOverrides.txt_import_encrypted_file_title = '匯入加密檔案';
+zhTWOverrides.txt_import_encrypted_file_message = '該 Bitwarden 匯出檔案已加密，請輸入檔案密碼繼續。';
+zhTWOverrides.txt_import_encrypted_zip_title = '匯入加密 ZIP';
+zhTWOverrides.txt_import_encrypted_zip_message = '該 ZIP 壓縮包已加密，請輸入 ZIP 密碼繼續。';
 
-zhCNOverrides.txt_import_export_title = '匯入匯出';
-zhCNOverrides.txt_new_type_header = '新建{type}';
-zhCNOverrides.txt_edit_type_header = '編輯{type}';
-zhCNOverrides.txt_archive = '歸檔';
-zhCNOverrides.txt_archive_item = '歸檔專案';
-zhCNOverrides.txt_archive_item_message = '歸檔後，此專案將被排除在一般搜尋結果和自動填充建議之外。';
-zhCNOverrides.txt_archive_selected_items = '歸檔專案';
-zhCNOverrides.txt_archive_selected_items_message = '歸檔後，所選的 {count} 個專案將被排除在一般搜尋結果和自動填充建議之外。';
-zhCNOverrides.txt_archived = '已歸檔';
-zhCNOverrides.txt_archive_selected = '歸檔';
-zhCNOverrides.txt_item_archived = '專案已歸檔';
-zhCNOverrides.txt_item_unarchived = '專案已取消歸檔';
-zhCNOverrides.txt_archived_selected_items = '已歸檔所選專案';
-zhCNOverrides.txt_unarchived_selected_items = '已取消歸檔所選專案';
-zhCNOverrides.txt_archive_item_failed = '歸檔專案失敗';
-zhCNOverrides.txt_unarchive_item_failed = '取消歸檔專案失敗';
-zhCNOverrides.txt_bulk_archive_failed = '批次歸檔失敗';
-zhCNOverrides.txt_bulk_unarchive_failed = '批次取消歸檔失敗';
-zhCNOverrides.txt_unarchive = '取消歸檔';
-zhCNOverrides.txt_delete_folder = '刪除資料夾';
-zhCNOverrides.txt_delete_folder_message = '刪除資料夾「{name}」？其中的專案將移至無資料夾。';
-zhCNOverrides.txt_delete_all_folders = '刪除全部資料夾';
-zhCNOverrides.txt_delete_all_folders_message = '確認刪除全部資料夾嗎？其中的專案將移至無資料夾。';
-zhCNOverrides.txt_folder_not_found = '資料夾不存在';
-zhCNOverrides.txt_folder_deleted = '資料夾已刪除';
-zhCNOverrides.txt_folder_updated = '資料夾已重新命名';
-zhCNOverrides.txt_folders_deleted = '資料夾已刪除';
-zhCNOverrides.txt_update_folder_failed = '重新命名資料夾失敗';
-zhCNOverrides.txt_delete_folder_failed = '刪除資料夾失敗';
-zhCNOverrides.txt_delete_all_folders_failed = '刪除全部資料夾失敗';
-zhCNOverrides.txt_other = '其他';
-zhCNOverrides.txt_vault_key_unavailable = '賬戶金鑰不可用，請先解鎖密碼庫後重試。';
-zhCNOverrides.txt_vault_not_ready = '密碼庫資料尚未就緒';
-zhCNOverrides.txt_unsupported_export_format = '不支援的匯出格式';
-zhCNOverrides.txt_invalid_encrypted_export = '加密匯出檔案無效。';
-zhCNOverrides.txt_export_belongs_to_another_account = '此加密匯出檔案屬於另一個賬號。';
-zhCNOverrides.txt_invalid_argon2id_params = '匯出檔案中的 Argon2id 引數無效。';
-zhCNOverrides.txt_unsupported_kdf_type = '不支援的 KDF 型別：{type}';
-zhCNOverrides.txt_invalid_file_password = '檔案密碼錯誤。';
-zhCNOverrides.txt_failed_to_map_attachments = '無法將 {count} 個附件匹配到匯入專案。';
+zhTWOverrides.txt_import_export_title = '匯入匯出';
+zhTWOverrides.txt_new_type_header = '新建{type}';
+zhTWOverrides.txt_edit_type_header = '編輯{type}';
+zhTWOverrides.txt_archive = '歸檔';
+zhTWOverrides.txt_archive_item = '歸檔項目';
+zhTWOverrides.txt_archive_item_message = '歸檔後，此項目將被排除在一般搜尋結果和自動填入建議之外。';
+zhTWOverrides.txt_archive_selected_items = '歸檔項目';
+zhTWOverrides.txt_archive_selected_items_message = '歸檔後，所選的 {count} 個項目將被排除在一般搜尋結果和自動填入建議之外。';
+zhTWOverrides.txt_archived = '已歸檔';
+zhTWOverrides.txt_archive_selected = '歸檔';
+zhTWOverrides.txt_item_archived = '項目已歸檔';
+zhTWOverrides.txt_item_unarchived = '項目已取消歸檔';
+zhTWOverrides.txt_archived_selected_items = '已歸檔所選項目';
+zhTWOverrides.txt_unarchived_selected_items = '已取消歸檔所選項目';
+zhTWOverrides.txt_archive_item_failed = '歸檔項目失敗';
+zhTWOverrides.txt_unarchive_item_failed = '取消歸檔項目失敗';
+zhTWOverrides.txt_bulk_archive_failed = '批次歸檔失敗';
+zhTWOverrides.txt_bulk_unarchive_failed = '批次取消歸檔失敗';
+zhTWOverrides.txt_unarchive = '取消歸檔';
+zhTWOverrides.txt_delete_folder = '刪除資料夾';
+zhTWOverrides.txt_delete_folder_message = '刪除資料夾「{name}」？其中的項目將移至無資料夾。';
+zhTWOverrides.txt_delete_all_folders = '刪除全部資料夾';
+zhTWOverrides.txt_delete_all_folders_message = '確認刪除全部資料夾嗎？其中的項目將移至無資料夾。';
+zhTWOverrides.txt_folder_not_found = '資料夾不存在';
+zhTWOverrides.txt_folder_deleted = '資料夾已刪除';
+zhTWOverrides.txt_folder_updated = '資料夾已重新命名';
+zhTWOverrides.txt_folders_deleted = '資料夾已刪除';
+zhTWOverrides.txt_update_folder_failed = '重新命名資料夾失敗';
+zhTWOverrides.txt_delete_folder_failed = '刪除資料夾失敗';
+zhTWOverrides.txt_delete_all_folders_failed = '刪除全部資料夾失敗';
+zhTWOverrides.txt_other = '其他';
+zhTWOverrides.txt_vault_key_unavailable = '帳戶金鑰不可用，請先解鎖密碼庫後重試。';
+zhTWOverrides.txt_vault_not_ready = '密碼庫資料尚未就緒';
+zhTWOverrides.txt_unsupported_export_format = '不支援的匯出格式';
+zhTWOverrides.txt_invalid_encrypted_export = '加密匯出檔案無效。';
+zhTWOverrides.txt_export_belongs_to_another_account = '此加密匯出檔案屬於另一個帳號。';
+zhTWOverrides.txt_invalid_argon2id_params = '匯出檔案中的 Argon2id 參數無效。';
+zhTWOverrides.txt_unsupported_kdf_type = '不支援的 KDF 型別：{type}';
+zhTWOverrides.txt_invalid_file_password = '檔案密碼錯誤。';
+zhTWOverrides.txt_failed_to_map_attachments = '無法將 {count} 個附件對應到匯入項目。';
 
-messages['zh-CN'] = { ...messages.en, ...zhCNOverrides };
+messages['zh-TW'] = { ...messages.en, ...zhTWOverrides };
 
 function resolveInitialLocale(): Locale {
   try {
     const saved = localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (saved === 'en' || saved === 'zh-CN') return saved;
+    if (saved === 'en' || saved === 'zh-TW') return saved;
+    if (saved === 'zh-CN') return 'zh-TW';
   } catch {
     // ignore storage errors
   }
   if (typeof navigator !== 'undefined') {
     const langs = Array.isArray(navigator.languages) ? navigator.languages : [navigator.language];
     for (const lang of langs) {
-      if (String(lang || '').toLowerCase().startsWith('zh')) return 'zh-CN';
+      if (String(lang || '').toLowerCase().startsWith('zh')) return 'zh-TW';
     }
   }
   return 'en';

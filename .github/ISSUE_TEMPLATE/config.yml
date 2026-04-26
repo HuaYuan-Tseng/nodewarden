@@ -4,9 +4,9 @@ contact_links:
     url: https://github.com/shuaiplus/nodewarden/wiki
     about: |
       Please check the documentation for common questions and troubleshooting steps.
-      請先檢視文件，常見問題和排查步驟可能已經覆蓋了你的問題。
+      請先檢視文件，常見問題與疑難排解步驟可能已經涵蓋你的問題。
   - name: Project Discussions / 討論區
     url: https://github.com/shuaiplus/nodewarden/discussions
     about: |
       For general questions, feature discussions, or if you're not sure which template to use, please post in the Discussions section.
-      如果你有一般性問題、功能討論，或者不確定使用哪個模板，請在討論區發帖。
+      如果你有一般性問題、功能討論，或者不確定使用哪個模板，請在討論區發文。
