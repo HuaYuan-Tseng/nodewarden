@@ -821,7 +821,7 @@ export default function App() {
           try {
             return { text: await decryptStr(raw, itemEnc, itemMac), source: 'item' };
           } catch {
-            // 继续尝试旧 user key 数据。
+            // 繼續嘗試舊 user key 資料。
           }
           if (!sameBytes(itemEnc, encKey) || !sameBytes(itemMac, macKey)) {
             try {
@@ -962,7 +962,7 @@ export default function App() {
                           metadata.key = await encryptBw(rawAttachmentKey, itemEnc, itemMac);
                         }
                       } catch {
-                        // 文件下载时会继续尝试旧格式。
+                        // 檔案下載時會繼續嘗試舊格式。
                       }
                     }
                   }

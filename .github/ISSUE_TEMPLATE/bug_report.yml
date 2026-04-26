@@ -1,5 +1,5 @@
 name: "Bug Report"
-description: "Report a reproducible bug / 反馈可复现问题"
+description: "Report a reproducible bug / 反饋可重現問題"
 title: "[Bug] "
 labels: ["bug", "needs-triage"]
 body:
@@ -7,16 +7,16 @@ body:
     attributes:
       value: |
         Thanks for reporting. Please provide enough detail so maintainers can reproduce quickly.
-        感谢反馈，请尽量提供可复现信息，方便快速定位。
+        感謝反饋，請儘量提供可重現資訊，方便快速定位。
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: Pre-check / 提交前确认
+      label: Pre-check / 提交前確認
       options:
-        - label: I have searched existing issues and did not find a duplicate. / 我已搜索现有 issue，确认不是重复问题。
+        - label: I have searched existing issues and did not find a duplicate. / 我已搜尋現有 issue，確認不是重複問題。
           required: true
-        - label: I have read README and Project Wiki / 我已阅读 README 与 项目 Wiki。
+        - label: I have read README and Project Wiki / 我已閱讀 README 與 專案 Wiki。
           required: true
 
   - type: input
@@ -31,7 +31,7 @@ body:
   - type: textarea
     id: reproduce_steps
     attributes:
-      label: Steps to Reproduce / 复现步骤
+      label: Steps to Reproduce / 重現步驟
       placeholder: |
         1. Start service with ...
         2. Open ...
@@ -43,21 +43,21 @@ body:
   - type: textarea
     id: expected
     attributes:
-      label: Expected Behavior / 预期行为
+      label: Expected Behavior / 預期行為
     validations:
       required: true
 
   - type: textarea
     id: actual
     attributes:
-      label: Actual Behavior / 实际行为
+      label: Actual Behavior / 實際行為
     validations:
       required: true
 
   - type: textarea
     id: logs
     attributes:
-      label: Logs and Screenshots / 日志与截图
+      label: Logs and Screenshots / 日誌與截圖
       description: "Please paste key logs (docker logs / browser console / network errors)."
       render: shell
     validations:
@@ -66,5 +66,5 @@ body:
   - type: textarea
     id: extra
     attributes:
-      label: Additional Context / 补充信息
+      label: Additional Context / 補充資訊
       description: "Any workaround, frequency, impact scope, etc."
