@@ -1699,7 +1699,10 @@ function resolveInitialLocale(): Locale {
   try {
     const saved = localStorage.getItem(LOCALE_STORAGE_KEY);
     if (saved === 'en' || saved === 'zh-TW') return saved;
-    if (saved === 'zh-CN') return 'zh-TW';
+    if (saved === 'zh-CN') {
+      localStorage.setItem(LOCALE_STORAGE_KEY, 'zh-TW');
+      return 'zh-TW';
+    }
   } catch {
     // ignore storage errors
   }
