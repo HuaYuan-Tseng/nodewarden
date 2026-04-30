@@ -1707,9 +1707,6 @@ const loadedMessages = new Map<Locale, MessageTable>([
   ['zh-TW', messages['zh-TW']],
 ]);
 
-let locale: Locale = resolveInitialLocale();
-let activeMessages: MessageTable = loadedMessages.get(locale) ?? messages.en;
-
 function resolveInitialLocale(): Locale {
   try {
     const saved = localStorage.getItem(LOCALE_STORAGE_KEY);
@@ -1729,6 +1726,9 @@ function resolveInitialLocale(): Locale {
   }
   return 'en';
 }
+
+let locale: Locale = resolveInitialLocale();
+let activeMessages: MessageTable = loadedMessages.get(locale) ?? messages.en;
 
 async function loadLocaleMessages(next: Locale): Promise<MessageTable> {
   const cached = loadedMessages.get(next);
