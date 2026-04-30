@@ -1,6 +1,11 @@
-type Locale = 'en' | 'zh-TW';
+export type Locale = 'en' | 'zh-TW';
 
 const LOCALE_STORAGE_KEY = 'nodewarden.locale';
+
+export const AVAILABLE_LOCALES: ReadonlyArray<{ value: Locale; label: string }> = [
+  { value: 'en', label: 'English' },
+  { value: 'zh-TW', label: '繁體中文' },
+];
 
 const messages: Record<Locale, Record<string, string>> = {
   en: {
