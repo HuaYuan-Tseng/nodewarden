@@ -7,6 +7,8 @@ export const AVAILABLE_LOCALES: ReadonlyArray<{ value: Locale; label: string }> 
   { value: 'zh-TW', label: '繁體中文' },
 ];
 
+type MessageTable = Record<string, string>;
+
 const messages: Record<Locale, Record<string, string>> = {
   en: {
     nav_account_settings: "Account Settings",
@@ -1699,6 +1701,14 @@ zhTWOverrides.txt_invalid_file_password = '檔案密碼錯誤。';
 zhTWOverrides.txt_failed_to_map_attachments = '無法將 {count} 個附件對應到匯入項目。';
 
 messages['zh-TW'] = { ...messages.en, ...zhTWOverrides };
+
+const loadedMessages = new Map<Locale, MessageTable>([
+  ['en', messages.en],
+  ['zh-TW', messages['zh-TW']],
+]);
+
+let locale: Locale = resolveInitialLocale();
+let activeMessages: MessageTable = loadedMessages.get(locale) ?? messages.en;
 
 function resolveInitialLocale(): Locale {
   try {
