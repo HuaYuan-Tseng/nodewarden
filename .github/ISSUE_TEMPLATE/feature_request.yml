@@ -1,5 +1,5 @@
 name: "Feature Request"
-description: "Suggest an improvement / 功能建议"
+description: "Suggest an improvement / 功能建議"
 title: "[Feature] "
 labels: ["enhancement", "needs-triage"]
 body:
@@ -7,20 +7,20 @@ body:
     attributes:
       value: |
         Proposals with clear use-case and expected value are easier to evaluate.
-        说明清晰的使用场景和价值，有助于快速评估。
+        說明清晰的使用場景和價值，有助於快速評估。
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: Pre-check / 提交前确认
+      label: Pre-check / 提交前確認
       options:
-        - label: I have searched existing issues and this request is not duplicated. / 我已搜索现有 issue，确认不是重复建议。
+        - label: I have searched existing issues and this request is not duplicated. / 我已搜尋現有 issue，確認不是重複建議。
           required: true
 
   - type: textarea
     id: problem
     attributes:
-      label: Problem Statement / 现存问题
+      label: Problem Statement / 現存問題
       description: "What is difficult or missing today?"
     validations:
       required: true
@@ -28,7 +28,7 @@ body:
   - type: textarea
     id: proposal
     attributes:
-      label: Proposed Solution / 建议方案
+      label: Proposed Solution / 建議方案
       description: "Describe your expected behavior, UI flow, API changes, etc."
     validations:
       required: true
@@ -36,7 +36,7 @@ body:
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternatives Considered / 备选方案
+      label: Alternatives Considered / 備選方案
       description: "Any alternatives or workarounds you've considered."
     validations:
       required: false
@@ -44,7 +44,7 @@ body:
   - type: textarea
     id: impact
     attributes:
-      label: Expected Impact / 预期价值
+      label: Expected Impact / 預期價值
       description: "Who benefits? Any performance/security/maintenance concerns?"
     validations:
       required: true
@@ -52,11 +52,11 @@ body:
   - type: input
     id: scope
     attributes:
-      label: Scope (Optional) / 影响范围（可选）
+      label: Scope (Optional) / 影響範圍（可選）
       placeholder: "frontend / backend / docs / deployment"
 
   - type: textarea
     id: extra
     attributes:
-      label: Additional Context / 补充信息
+      label: Additional Context / 補充資訊
       description: "Mockups, references, related links, etc."

@@ -323,7 +323,7 @@ async function decryptAttachmentFileName(
     const fileName = await decryptStr(rawFileName, itemKeys.enc, itemKeys.mac);
     if (fileName) return { fileName, source: 'item' };
   } catch {
-    // 继续尝试旧 user key 文件名。
+    // 繼續嘗試舊 user key 檔名。
   }
 
   if (!sameBytes(itemKeys.enc, userKeys.enc) || !sameBytes(itemKeys.mac, userKeys.mac)) {
@@ -331,7 +331,7 @@ async function decryptAttachmentFileName(
       const fileName = await decryptStr(rawFileName, userKeys.enc, userKeys.mac);
       if (fileName) return { fileName, source: 'user' };
     } catch {
-      // 保留原始文件名。
+      // 保留原始檔名。
     }
   }
 
@@ -426,7 +426,7 @@ export async function downloadCipherAttachmentDecrypted(
       usedCandidate = candidate;
       break;
     } catch {
-      // 继续尝试下一种旧附件格式。
+      // 繼續嘗試下一種舊附件格式。
     }
   }
   if (!plainBytes || !usedCandidate) throw new Error('Attachment decryption failed');
@@ -455,7 +455,7 @@ export async function downloadCipherAttachmentDecrypted(
       await repairCipherAttachmentMetadata(authedFetch, cid, aid, metadata);
     }
   } catch {
-    // 修复失败不影响本次下载，旧附件内容已经成功解密。
+    // 修復失敗不影響本次下載，舊附件內容已經成功解密。
   }
 
   return { fileName, bytes: plainBytes };
