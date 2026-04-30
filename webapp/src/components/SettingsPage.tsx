@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
-import { Clipboard, KeyRound, Lightbulb, RefreshCw, ShieldCheck, ShieldOff } from 'lucide-preact';
+import { Clipboard, KeyRound, RefreshCw, ShieldCheck, ShieldOff } from 'lucide-preact';
 import { copyTextToClipboard } from '@/lib/clipboard';
 import qrcode from 'qrcode-generator';
 import type { Profile } from '@/lib/types';
-import { t } from '@/lib/i18n';
+import { AVAILABLE_LOCALES, getLocale, setLocale, t, type Locale } from '@/lib/i18n';
 import ConfirmDialog from '@/components/ConfirmDialog';
 
 interface SettingsPageProps {
@@ -79,6 +79,7 @@ export default function SettingsPage(props: SettingsPageProps) {
   const [masterPasswordPrompt, setMasterPasswordPrompt] = useState<null | 'recovery' | 'apiKey' | 'rotateApiKey'>(null);
   const [masterPasswordPromptValue, setMasterPasswordPromptValue] = useState('');
   const [masterPasswordPromptSubmitting, setMasterPasswordPromptSubmitting] = useState(false);
+  const [selectedLocale, setSelectedLocale] = useState<Locale>(() => getLocale());
 
   useEffect(() => {
     clearLegacyTotpSetupSecrets();
@@ -167,6 +168,13 @@ export default function SettingsPage(props: SettingsPageProps) {
     return parsed.toLocaleString();
   }
 
+  async function changeLocale(next: Locale): Promise<void> {
+    if (next === getLocale()) return;
+    setSelectedLocale(next);
+    await setLocale(next);
+    window.location.reload();
+  }
+
   return (
     <div className="settings-modules-grid">
       <section className="card settings-module">
@@ -200,9 +208,23 @@ export default function SettingsPage(props: SettingsPageProps) {
         </div>
       </section>
 
-      <section className="card settings-module settings-module-placeholder">
-        <Lightbulb size={26} aria-hidden="true" />
-        <span>{t('txt_in_planning')}</span>
+      <section className="card settings-module">
+        <h3>{t('txt_language')}</h3>
+        <label className="field">
+          <span>{t('txt_display_language')}</span>
+          <select
+            className="input"
+            value={selectedLocale}
+            onInput={(e) => void changeLocale((e.currentTarget as HTMLSelectElement).value as Locale)}
+          >
+            {AVAILABLE_LOCALES.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <div className="field-help">{t('txt_language_saved_locally')}</div>
+        </label>
       </section>
 
       <section className="card settings-module">
@@ -269,7 +291,33 @@ export default function SettingsPage(props: SettingsPageProps) {
             <div>
               <label className="field">
                 <span>{t('txt_authenticator_key')}</span>
-                <input className="input" value={secret} disabled={totpLocked} onInput={(e) => setSecret((e.currentTarget as HTMLInputElement).value.toUpperCase())} />
+                <div className="totp-secret-input-wrap">
+                  <input className="input totp-secret-input" value={secret} disabled={totpLocked} onInput={(e) => setSecret((e.currentTarget as HTMLInputElement).value.toUpperCase())} />
+                  <div className="totp-secret-actions">
+                    <button
+                      type="button"
+                      className="btn btn-secondary small totp-secret-icon-btn"
+                      disabled={totpLocked}
+                      title={t('txt_regenerate')}
+                      aria-label={t('txt_regenerate')}
+                      onClick={() => setSecret(randomBase32Secret(32))}
+                    >
+                      <RefreshCw size={14} className="btn-icon" />
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-secondary small totp-secret-icon-btn"
+                      disabled={totpLocked}
+                      title={t('txt_copy_secret')}
+                      aria-label={t('txt_copy_secret')}
+                      onClick={() => {
+                        void copyTextToClipboard(secret, { successMessage: t('txt_secret_copied') });
+                      }}
+                    >
+                      <Clipboard size={14} className="btn-icon" />
+                    </button>
+                  </div>
+                </div>
               </label>
               <label className="field">
                 <span>{t('txt_verification_code')}</span>
@@ -280,29 +328,14 @@ export default function SettingsPage(props: SettingsPageProps) {
                   <ShieldCheck size={14} className="btn-icon" />
                   {totpLocked ? t('txt_enabled') : t('txt_enable_totp')}
                 </button>
-                <button type="button" className="btn btn-secondary" disabled={totpLocked} onClick={() => setSecret(randomBase32Secret(32))}>
-                  <RefreshCw size={14} className="btn-icon" />
-                  {t('txt_regenerate')}
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  disabled={totpLocked}
-                  onClick={() => {
-                    void copyTextToClipboard(secret, { successMessage: t('txt_secret_copied') });
-                  }}
-                >
-                  <Clipboard size={14} className="btn-icon" />
-                  {t('txt_copy_secret')}
+                <button type="button" className="btn btn-danger" disabled={!totpLocked} onClick={props.onOpenDisableTotp}>
+                  <ShieldOff size={14} className="btn-icon" />
+                  {t('txt_disable_totp')}
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <button type="button" className="btn btn-danger" disabled={!totpLocked} onClick={props.onOpenDisableTotp}>
-          <ShieldOff size={14} className="btn-icon" />
-          {t('txt_disable_totp')}
-        </button>
       </section>
 
       <section className="card settings-module">

@@ -1,9 +1,10 @@
 <p align="center">
-  <img src="./NodeWarden.png" alt="NodeWarden Logo" />
+  <img src="./NodeWarden.svg" alt="NodeWarden Logo" />
 </p>
 
 <p align="center">
-  A third-party Bitwarden-compatible server running on Cloudflare Workers.
+  Bitwarden-compatible server running on Cloudflare Workers
+
 </p>
 [![Powered by Cloudflare](https://img.shields.io/badge/Powered%20by-Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![License: LGPL-3.0](https://img.shields.io/badge/License-LGPL--3.0-2ea44f)](./LICENSE)

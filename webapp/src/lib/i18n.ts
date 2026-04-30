@@ -1715,12 +1715,43 @@ function resolveInitialLocale(): Locale {
   return 'en';
 }
 
-let locale: Locale = resolveInitialLocale();
+async function loadLocaleMessages(next: Locale): Promise<MessageTable> {
+  const cached = loadedMessages.get(next);
+  if (cached) return cached;
+
+  const mod = next === 'zh-CN'
+    ? await import('./i18n/locales/zh-CN')
+    : next === 'zh-TW'
+      ? await import('./i18n/locales/zh-TW')
+      : next === 'ru'
+        ? await import('./i18n/locales/ru')
+        : await import('./i18n/locales/en');
+  loadedMessages.set(next, mod.default);
+  return mod.default;
+}
+
+async function loadFallbackMessages(): Promise<MessageTable> {
+  const cached = loadedMessages.get('en');
+  if (cached) return cached;
+  const mod = await import('./i18n/locales/en');
+  loadedMessages.set('en', mod.default);
+  return mod.default;
+}
 
 export type I18nParams = Record<string, string | number | null | undefined>;
 
+export async function initI18n(): Promise<void> {
+  try {
+    activeMessages = await loadLocaleMessages(locale);
+  } catch (error) {
+    console.error('Failed to load locale, falling back to English:', error);
+    locale = 'en';
+    activeMessages = await loadFallbackMessages();
+  }
+}
+
 export function t(key: string, params?: I18nParams): string {
-  const template = messages[locale][key] ?? key;
+  const template = activeMessages[key] ?? key;
   if (!params) return template;
   return template.replace(/\{(\w+)\}/g, (_, name: string) => String(params[name] ?? ''));
 }
@@ -1729,8 +1760,17 @@ export function getLocale(): Locale {
   return locale;
 }
 
-export function setLocale(next: Locale): void {
+export async function setLocale(next: Locale): Promise<void> {
+  let nextMessages: MessageTable;
+  try {
+    nextMessages = await loadLocaleMessages(next);
+  } catch (error) {
+    console.error('Failed to load selected locale, falling back to English:', error);
+    next = 'en';
+    nextMessages = await loadFallbackMessages();
+  }
   locale = next;
+  activeMessages = nextMessages;
   try {
     localStorage.setItem(LOCALE_STORAGE_KEY, next);
   } catch {

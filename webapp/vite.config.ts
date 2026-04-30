@@ -28,6 +28,26 @@ export default defineConfig({
 
           const normalized = id.replace(/\\/g, '/');
 
+          if (normalized.includes('/src/lib/i18n/locales/en.ts')) {
+            return 'i18n-en';
+          }
+
+          if (normalized.includes('/src/lib/i18n/locales/zh-CN.ts')) {
+            return 'i18n-zh-CN';
+          }
+
+          if (normalized.includes('/src/lib/i18n/locales/zh-TW.ts')) {
+            return 'i18n-zh-TW';
+          }
+
+          if (normalized.includes('/src/lib/i18n/locales/ru.ts')) {
+            return 'i18n-ru';
+          }
+
+          if (normalized.includes('/src/lib/i18n.ts')) {
+            return 'i18n-core';
+          }
+
           if (
             normalized.includes('/src/components/AuthViews.tsx') ||
             normalized.includes('/src/components/PublicSendPage.tsx') ||
@@ -42,10 +62,8 @@ export default defineConfig({
             normalized.includes('/src/components/ImportPage.tsx') ||
             normalized.includes('/src/lib/import-') ||
             normalized.includes('/src/lib/export-formats.ts') ||
-            normalized.includes('/src/components/VaultPage.tsx') ||
             normalized.includes('/src/components/SendsPage.tsx') ||
-            normalized.includes('/src/components/TotpCodesPage.tsx') ||
-            normalized.includes('/src/components/vault/')
+            normalized.includes('/src/components/TotpCodesPage.tsx')
           ) {
             return 'workspace-suite';
           }

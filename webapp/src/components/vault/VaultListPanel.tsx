@@ -1,11 +1,14 @@
 import type { RefObject } from 'preact';
+import { memo } from 'preact/compat';
+import { createPortal } from 'preact/compat';
 import { Archive, ArrowUpDown, Check, CheckCheck, FolderInput, Plus, RefreshCw, RotateCcw, Trash2, X } from 'lucide-preact';
+import LoadingState from '@/components/LoadingState';
 import type { Cipher } from '@/lib/types';
 import { t } from '@/lib/i18n';
 import {
-  CREATE_TYPE_OPTIONS,
   CreateTypeIcon,
-  VAULT_SORT_OPTIONS,
+  getCreateTypeOptions,
+  getVaultSortOptions,
   VaultListIcon,
   type SidebarFilter,
   type VaultSortMode,
@@ -32,6 +35,8 @@ interface VaultListPanelProps {
   selectedCipherId: string;
   selectedMap: Record<string, boolean>;
   sidebarFilter: SidebarFilter;
+  isMobileLayout: boolean;
+  mobileFabVisible: boolean;
   createMenuOpen: boolean;
   createMenuRef: RefObject<HTMLDivElement>;
   sortMenuRef: RefObject<HTMLDivElement>;
@@ -59,7 +64,74 @@ interface VaultListPanelProps {
   listSubtitle: (cipher: Cipher) => string;
 }
 
+interface CipherListItemProps {
+  cipher: Cipher;
+  selected: boolean;
+  checked: boolean;
+  subtitle: string;
+  onToggleSelected: (cipherId: string, checked: boolean) => void;
+  onSelectCipher: (cipherId: string) => void;
+}
+
+const CipherListItem = memo(function CipherListItem(props: CipherListItemProps) {
+  return (
+    <div
+      className={`list-item ${props.selected ? 'active' : ''}`}
+      onClick={(event) => {
+        const target = event.target as HTMLElement;
+        if (target.closest('.row-check')) return;
+        props.onSelectCipher(props.cipher.id);
+      }}
+    >
+      <input
+        type="checkbox"
+        className="row-check"
+        checked={props.checked}
+        onClick={(event) => event.stopPropagation()}
+        onInput={(e) => props.onToggleSelected(props.cipher.id, (e.currentTarget as HTMLInputElement).checked)}
+      />
+      <button type="button" className="row-main" onClick={() => props.onSelectCipher(props.cipher.id)}>
+        <div className="list-icon-wrap">
+          <VaultListIcon cipher={props.cipher} />
+        </div>
+        <div className="list-text">
+          <span className="list-title" title={props.cipher.decName || t('txt_no_name')}>
+            <span className="list-title-text">{props.cipher.decName || t('txt_no_name')}</span>
+          </span>
+          <span className="list-sub" title={props.subtitle}>{props.subtitle}</span>
+        </div>
+      </button>
+    </div>
+  );
+});
+
 export default function VaultListPanel(props: VaultListPanelProps) {
+  const createTypeOptions = getCreateTypeOptions();
+  const vaultSortOptions = getVaultSortOptions();
+  const createMenu = (
+    <div className="create-menu-wrap mobile-fab-wrap" ref={props.createMenuRef}>
+      <button
+        type="button"
+        className="btn btn-primary small mobile-fab-trigger"
+        aria-label={t('txt_add')}
+        title={t('txt_add')}
+        onClick={props.onToggleCreateMenu}
+      >
+        <Plus size={14} className="btn-icon" />
+      </button>
+      {props.createMenuOpen && (
+        <div className="create-menu">
+          {createTypeOptions.map((option) => (
+            <button key={option.type} type="button" className="create-menu-item" onClick={() => props.onStartCreate(option.type)}>
+              <CreateTypeIcon type={option.type} />
+              <span>{option.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <section className="list-col">
       <div className="list-head">
@@ -101,7 +173,7 @@ export default function VaultListPanel(props: VaultListPanelProps) {
           </button>
           {props.sortMenuOpen && (
             <div className="sort-menu">
-              {VAULT_SORT_OPTIONS.map((option) => (
+              {vaultSortOptions.map((option) => (
                 <button
                   key={option.value}
                   type="button"
@@ -159,65 +231,29 @@ export default function VaultListPanel(props: VaultListPanelProps) {
         <button type="button" className="btn btn-secondary small" disabled={!props.filteredCiphers.length} onClick={props.onSelectAll}>
           <CheckCheck size={14} className="btn-icon" /> {t('txt_select_all')}
         </button>
-        <div className="create-menu-wrap mobile-fab-wrap" ref={props.createMenuRef}>
-          <button
-            type="button"
-            className="btn btn-primary small mobile-fab-trigger"
-            aria-label={t('txt_add')}
-            title={t('txt_add')}
-            onClick={props.onToggleCreateMenu}
-          >
-            <Plus size={14} className="btn-icon" />
-          </button>
-          {props.createMenuOpen && (
-            <div className="create-menu">
-              {CREATE_TYPE_OPTIONS.map((option) => (
-                <button key={option.type} type="button" className="create-menu-item" onClick={() => props.onStartCreate(option.type)}>
-                  <CreateTypeIcon type={option.type} />
-                  <span>{option.label}</span>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+        {props.isMobileLayout && typeof document !== 'undefined'
+          ? props.mobileFabVisible ? createPortal(createMenu, document.body) : null
+          : createMenu}
       </div>
 
       <div className="list-panel" ref={props.listPanelRef} onScroll={(event) => props.onScroll((event.currentTarget as HTMLDivElement).scrollTop)}>
+        {props.loading && !props.filteredCiphers.length && <LoadingState lines={7} compact />}
         {!!props.filteredCiphers.length && (
           <div style={{ paddingTop: `${props.virtualRange.padTop}px`, paddingBottom: `${props.virtualRange.padBottom}px` }}>
             {props.visibleCiphers.map((cipher) => (
-              <div
+              <CipherListItem
                 key={cipher.id}
-                className={`list-item ${props.selectedCipherId === cipher.id ? 'active' : ''}`}
-                onClick={(event) => {
-                  const target = event.target as HTMLElement;
-                  if (target.closest('.row-check')) return;
-                  props.onSelectCipher(cipher.id);
-                }}
-              >
-                <input
-                  type="checkbox"
-                  className="row-check"
-                  checked={!!props.selectedMap[cipher.id]}
-                  onClick={(event) => event.stopPropagation()}
-                  onInput={(e) => props.onToggleSelected(cipher.id, (e.currentTarget as HTMLInputElement).checked)}
-                />
-                <button type="button" className="row-main" onClick={() => props.onSelectCipher(cipher.id)}>
-                  <div className="list-icon-wrap">
-                    <VaultListIcon cipher={cipher} />
-                  </div>
-                  <div className="list-text">
-                    <span className="list-title" title={cipher.decName || t('txt_no_name')}>
-                      <span className="list-title-text">{cipher.decName || t('txt_no_name')}</span>
-                    </span>
-                    <span className="list-sub" title={props.listSubtitle(cipher)}>{props.listSubtitle(cipher)}</span>
-                  </div>
-                </button>
-              </div>
+                cipher={cipher}
+                selected={props.selectedCipherId === cipher.id}
+                checked={!!props.selectedMap[cipher.id]}
+                subtitle={props.listSubtitle(cipher)}
+                onToggleSelected={props.onToggleSelected}
+                onSelectCipher={props.onSelectCipher}
+              />
             ))}
           </div>
         )}
-        {!props.filteredCiphers.length && <div className="empty">{t('txt_no_items')}</div>}
+        {!props.loading && !props.filteredCiphers.length && <div className="empty">{t('txt_no_items')}</div>}
       </div>
     </section>
   );

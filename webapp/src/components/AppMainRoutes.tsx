@@ -9,9 +9,9 @@ import { t } from '@/lib/i18n';
 import type { AdminInvite, AdminUser, AuthorizedDevice, Cipher, Folder as VaultFolder, Profile, Send, SendDraft, SessionState, VaultDraft } from '@/lib/types';
 import type { ExportRequest } from '@/lib/export-formats';
 
+const VaultPage = lazy(() => import('@/components/VaultPage'));
 const SendsPage = lazy(() => import('@/components/SendsPage'));
 const TotpCodesPage = lazy(() => import('@/components/TotpCodesPage'));
-const VaultPage = lazy(() => import('@/components/VaultPage'));
 const SettingsPage = lazy(() => import('@/components/SettingsPage'));
 const SecurityDevicesPage = lazy(() => import('@/components/SecurityDevicesPage'));
 const AdminPage = lazy(() => import('@/components/AdminPage'));
@@ -129,6 +129,7 @@ export interface AppMainRoutesProps {
 
 export default function AppMainRoutes(props: AppMainRoutesProps) {
   const importRoutePaths = [props.importRoute, '/tools/import', '/tools/import-export', '/tools/import-data', '/import', '/import-export'] as const;
+  const isAdmin = String(props.profile?.role || '').toLowerCase() === 'admin';
   const importPageContent = (
     <Suspense fallback={<RouteContentFallback />}>
       <ImportPage
@@ -262,13 +263,13 @@ export default function AppMainRoutes(props: AppMainRoutesProps) {
                 <ArrowUpDown size={18} />
                 <span>{t('nav_import_export')}</span>
               </Link>
-              {props.profile.role === 'admin' && (
+              {isAdmin && (
                 <Link href="/admin" className="mobile-settings-link">
                   <ShieldUser size={18} />
                   <span>{t('nav_admin_panel')}</span>
                 </Link>
               )}
-              {props.profile.role === 'admin' && (
+              {isAdmin && (
                 <Link href="/backup" className="mobile-settings-link">
                   <Cloud size={18} />
                   <span>{t('nav_backup_strategy')}</span>
@@ -340,7 +341,7 @@ export default function AppMainRoutes(props: AppMainRoutesProps) {
         <LegacyBackupRedirect onNavigate={props.onNavigate} />
       </Route>
       <Route path="/backup">
-        {props.profile?.role === 'admin' ? (
+        {isAdmin ? (
           <div className="stack">
             {props.mobileLayout && (
               <div className="mobile-settings-subhead">

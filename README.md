@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./NodeWarden.png" alt="NodeWarden Logo" />
+  <img src="./NodeWarden.svg" alt="NodeWarden Logo" />
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 [Telegram 頻道](https://t.me/NodeWarden_News) | [Telegram 群組](https://t.me/NodeWarden_Official)
 
-English: [`README_EN.md`](./README_EN.md)
+English: <a href="./README_EN.md"><code>README_EN.md</code></a>
 
 > **免責宣告**  
 > 本專案僅供學習與交流使用，請定期備份您的密碼庫。  

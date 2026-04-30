@@ -25,16 +25,21 @@ interface AppAuthenticatedShellProps {
   mainRoutesProps: AppMainRoutesProps;
 }
 
+function isAdminProfile(profile: Profile | null): boolean {
+  return String(profile?.role || '').toLowerCase() === 'admin';
+}
+
 export default function AppAuthenticatedShell(props: AppAuthenticatedShellProps) {
   const routeAnimationKey = props.isImportRoute ? props.importRoute : props.location;
+  const isAdmin = isAdminProfile(props.profile);
 
   return (
     <div className="app-page">
       <div className="app-shell">
         <header className="topbar">
           <div className="brand">
-            <img src="/logo-64.png" alt="NodeWarden logo" className="brand-logo" />
-            <img src="/nodewarden-wordmark.svg" alt="NodeWarden" className="brand-wordmark" />
+            <img src="/nodewarden-logo.svg" alt="NodeWarden logo" className="brand-logo" />
+            <span className="brand-wordmark" role="img" aria-label="NodeWarden" />
             <span className="mobile-page-title">{props.currentPageTitle}</span>
           </div>
           <div className="topbar-actions">
@@ -83,7 +88,7 @@ export default function AppAuthenticatedShell(props: AppAuthenticatedShellProps)
               <SendIcon size={16} />
               <span>{t('nav_sends')}</span>
             </Link>
-            {props.profile?.role === 'admin' && (
+            {isAdmin && (
               <Link href="/admin" className={`side-link ${props.location === '/admin' ? 'active' : ''}`}>
                 <ShieldUser size={16} />
                 <span>{t('nav_admin_panel')}</span>
@@ -97,7 +102,7 @@ export default function AppAuthenticatedShell(props: AppAuthenticatedShellProps)
               <Shield size={16} />
               <span>{t('nav_device_management')}</span>
             </Link>
-            {props.profile?.role === 'admin' && (
+            {isAdmin && (
               <Link href="/backup" className={`side-link ${props.location === '/backup' ? 'active' : ''}`}>
                 <Cloud size={16} />
                 <span>{t('nav_backup_strategy')}</span>
